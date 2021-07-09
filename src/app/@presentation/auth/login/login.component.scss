@@ -1,0 +1,137 @@
+@import '../../@theme/styles/themes';
+@include nb-install-component() {
+
+  background-color: transparent;
+  .content-global {
+    //margin: 20vh 0 0 0;
+    height: 80%;
+  }
+  .title-workspace {
+    color: white;
+    font-size: 2em;
+    letter-spacing: 2.3vw;
+  }
+  .title-img {
+    width: auto !important;
+  }
+
+
+  nb-layout-header nav {
+    background-color: transparent;
+  }
+  .content-login {
+    margin: 0 !important;
+    height: 80% !important;
+  }
+  .title-login {
+    font-size: 28px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #003a70;
+    text-align: center;
+  }
+  nb-card-header {
+    padding: 0;
+  }
+  nb-card-body {
+    overflow: visible;
+    //padding: 0 1.5em 2em;
+
+    > form > * {
+      margin-top: 4vh;
+    }
+  }
+
+  .forgot-password {
+    text-align: center;
+    color: #0172ce;
+    padding-top: 30px !important;
+    padding-bottom: 10px !important;
+  }
+
+  nb-card {
+
+    max-width: 394px;
+    border-radius : 10px;
+    margin: 0 3vw;
+  }
+  .caja {
+    text-align: center;
+  }
+  .caja-2 {
+    align-items: center;
+    height: 60vh;
+  }
+  //.title-workspace {
+  //  color: white;
+  //  letter-spacing: 1.5rem;
+  //  font-size: 3vh;
+  //  font-weight: bold;
+  //}
+
+  .title {
+
+    width: 20vw;
+    max-width: 244px;
+  }
+
+
+
+
+  /// custom
+
+  .group {
+    position:relative;
+    margin-top: 42px;
+  }
+
+  .txtfield {
+    font-size:16px;
+    padding:1px 10px 14px 0;
+    display:block;
+    width:100%;
+    border:none;
+    border-bottom: solid;
+    border-bottom-width: 2px;
+  }
+
+  .txtfield:focus {
+    outline:none;
+  }
+
+  .txtlabel {
+    color:#9d9d9d;
+    font-size:16px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left: 0;
+    top: 0;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+  }
+
+  /* active state */
+  .txtfield:focus ~ .txtlabel, .txtfield:valid ~ .txtlabel {
+    top:-20px;
+    font-size:12px;
+  }
+
+  .txtfield:focus ~ .bar:before, .txtfield:focus ~ .bar:after {
+    width:50%;
+  }
+
+  .input-icons {
+    width: 100%;
+  }
+
+  .input-icons nb-icon {
+    position: absolute;
+    color: #999;
+    right:5px;
+  }
+}

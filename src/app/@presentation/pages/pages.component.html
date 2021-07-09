@@ -1,0 +1,24 @@
+<nb-layout>
+  <nb-layout-header>
+    <app-header-home style="min-height: 77px; display: block">
+      <nb-menu
+        tag="menu"
+        class="horizontal-menu"
+        [class.horizontal-menu2]="userPictureOnly"
+        [items]="menu"
+      ></nb-menu>
+      <view-user #nbUser class="header-user" (click)="openProfile()">
+      </view-user>
+    </app-header-home>
+  </nb-layout-header>
+  <nb-layout-column class="p-0" [class.bg-color]="isActiveProfile">
+    <router-outlet></router-outlet>
+    <div class="position-right-fixed">
+      <router-outlet name="popup"></router-outlet>
+    </div>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <app-footer-auth class="w-100" style="padding: 0 2vw"></app-footer-auth>
+  </nb-layout-footer>
+</nb-layout>

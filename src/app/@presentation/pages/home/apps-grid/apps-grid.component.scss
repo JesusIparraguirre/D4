@@ -1,0 +1,43 @@
+@import '../../../@theme/styles/themes';
+@import '../../../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../../../../../node_modules/@nebular/theme/styles/global/breakpoints';
+@include nb-install-component() {
+  $primary: nb-theme(color-primary);
+  $secundary: nb-theme(color-secundary);
+
+  h3 {
+    margin: 2vh 0;
+  }
+  :host card-app ::ng-deep nav {
+    justify-content: flex-end;
+  }
+  .title-group {
+    font-size: 1.8em;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: $primary;
+  }
+
+  nb-card > {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  @include media-breakpoint-down(md) {
+    .title-group {
+      font-size: 1.2em;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      color: $primary;
+    }
+  }
+  @include media-breakpoint-down(xl) {
+
+  }
+}

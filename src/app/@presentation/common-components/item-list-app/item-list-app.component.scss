@@ -1,0 +1,138 @@
+@import '../../@theme/styles/themes';
+@import '../../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../../../../node_modules/@nebular/theme/styles/global/breakpoints';
+@include nb-install-component() {
+  $primary: nb-theme(color-primary);
+  $secundary: nb-theme(color-secundary);
+
+  .open-app:hover {
+    cursor: pointer;
+  }
+    h3 {
+      margin: 4vh 0;
+    }
+
+    nb-card {
+      // margin-left: 2rem;
+      // margin-right: 2rem;
+      // border-radius: 0.5rem;
+      border: 0px;
+      border-radius: 0%;
+      box-shadow: none;
+    }
+
+    // nb-card .nb-card-sha:hover {
+    //   padding-left: 15px !important;
+    //   padding-right: 15px !important;
+    //   padding-top: 15px;
+    //   padding-bottom: 15px;
+    //   box-shadow: 0 0.5rem 2rem 0 rgba(65, 72, 97, 0.27);
+    // }
+
+    .title-group {
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      color: $primary;
+    }
+
+    .item {
+      height: 90px;
+    }
+
+    .item > img {
+      height: 90px;
+    }
+
+    .content-data {
+      padding-left: 25px;
+      max-height: 70px;
+    }
+
+    .title-item {
+      font-size: 20px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      color: #2a2a2a;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .des {
+      font-size: 13px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      color: #2a2a2a;
+    }
+
+    .primary {
+      color: $primary;
+    }
+
+    .secundary {
+      color: $secundary;
+    }
+
+    .un-select {
+      color: #E2E2E2;
+    }
+
+    .cant_visit {
+      color: #9d9d9d;
+      font-size: 0.7rem;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .pin-favorite {
+      -webkit-transition: -webkit-transform 0.2s ease-in-out;
+      transition:         transform 0.2s ease-in-out;
+      border-radius: 2rem;
+      padding: 2px;
+
+    }
+    .pin-favorite:hover {
+      -webkit-transform: rotate(-30deg);
+      transform: rotate(-30deg);
+      width: 1.8rem;
+      color: $secundary;
+      cursor: pointer;
+    }
+
+  @include media-breakpoint-down(md) {
+
+    nb-card {
+      padding: 0 10px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .content-data {
+      padding: 0 0 0 5px;
+    }
+    .title-item {
+      font-size: 0.8em;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      color: #2a2a2a;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  @include media-breakpoint-down(xl) {
+
+  }
+}
+

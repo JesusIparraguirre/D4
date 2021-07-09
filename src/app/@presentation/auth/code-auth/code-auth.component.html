@@ -1,0 +1,70 @@
+<base-logo aligh="text-right">
+  <nb-layout-column class="align-self-center nb-layout-logo-div">
+    <div class="row align-self-center justify-content-center" style="height: 80% !important;">
+        <nb-card class="col-md-8"
+                 [appLoader]="loading">
+          <nb-card-header>
+            <div style="text-align: end">
+              <button nbButton ghost status="success" style=" padding-right: 0; padding-top: 12px; padding-bottom: 0;"><nb-icon icon="close" style="font-size: 1.5rem;" [routerLink]="['/auth/login']"></nb-icon></button>
+            </div>
+            <img class="icon-padlock" src="assets/images/send-mail.svg" alt="">
+            <div class="title-login font-source-sans-pro">Código de<br>verificación</div>
+            <div class="border-resalt"></div>
+          </nb-card-header>
+          <nb-card-body>
+            <form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+              <div class="roboto-regular" style="text-align: start !important;">Por favor ingresa el código de 4 dígitos enviado a tu correo.</div>
+              <div class="row justify-content-center">
+
+                <div class="group input-icons">
+                  <input [(ngModel)]="cod1" #code1 type="tel" class="txtfield font-source-sans-pro-semibold"
+                         (ngModelChange)="changedCode1($event)"
+                         (focusin)="focusInInputCode1($event)"
+                         (focusout)="focusOutInputCode1($event)"
+                         formControlName="code1"
+                         maxlength="1"
+                         minlength="1"
+                         [style.border-bottom-color] = "getColorBorderCode1()"
+                         required>
+                </div>
+                <div class="group input-icons">
+                  <input [(ngModel)]="cod2" #code2 type="tel" class="txtfield font-source-sans-pro-semibold"
+                         (ngModelChange)="changedCode2($event)"
+                         (focusin)="focusInInputCode2($event)"
+                         (focusout)="focusOutInputCode2($event)"
+                         formControlName="code2"
+                         maxlength="1"
+                         minlength="1"
+                         [style.border-bottom-color] = "getColorBorderCode2()"
+                         required>
+                </div>
+                <div class="group input-icons">
+                  <input [(ngModel)]="cod3" #code3 type="tel" class="txtfield font-source-sans-pro-semibold"
+                         (ngModelChange)="changedCode3($event)"
+                         (focusin)="focusInInputCode3($event)"
+                         (focusout)="focusOutInputCode3($event)"
+                         formControlName="code3"
+                         maxlength="1"
+                         minlength="1"
+                         [style.border-bottom-color] = "getColorBorderCode3()"
+                         required>
+                </div>
+                <div class="group input-icons">
+                  <input [(ngModel)]="cod4" #code4 type="tel" class="txtfield font-source-sans-pro-semibold"
+                         (ngModelChange)="changedCode4($event)"
+                         (focusin)="focusInInputCode4($event)"
+                         (focusout)="focusOutInputCode4($event)"
+                         formControlName="code4"
+                         maxlength="1"
+                         minlength="1"
+                         [style.border-bottom-color] = "getColorBorderCode4()"
+                         required>
+                </div>
+              </div>
+              <button class="button-gradient" [disabled]="!allEmpty()" type="submit" nbButton fullWidth size="large" shape="round">Enviar</button>
+            </form>
+          </nb-card-body>
+        </nb-card>
+    </div>
+  </nb-layout-column>
+</base-logo>

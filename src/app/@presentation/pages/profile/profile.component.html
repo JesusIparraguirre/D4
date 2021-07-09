@@ -1,0 +1,195 @@
+<div
+  [appLoader]="loading"
+  appLoaderStatus="primary"
+  appLoaderSize="large"
+  appLoaderMessage="Cargando..."
+>
+  <div class="fondo-content"></div>
+  <div class="row m-0 justify-content-center">
+    <div class="col-12 text-center">
+      <img [src]="picture" class="circle-perfil" />
+    </div>
+    <div class="col-md-4 pt-3" [class.offset-4]="!responsive">
+      <nb-action
+        class="justify-content-center"
+        *ngIf="isValidUser()"
+        (click)="cleanAndClick(inputfile)"
+      >
+        <img src="assets/images/camera.svg" />
+        <span class="primary pl-1 font-source-sans-pro com-nombre-foto"
+          >Cambiar foto</span
+        >
+      </nb-action>
+    </div>
+    <div class="col-md-4 content-logout" *ngIf="!responsive">
+      <nb-action class="justify-content-center" (click)="openDialogLogout()">
+        <nb-icon class="action-icon secundary" icon="power-outline"></nb-icon>
+        <span class="primary pl-1 font-source-sans-pro com-nombre-foto"
+          >Cerrar sesión</span
+        >
+      </nb-action>
+    </div>
+    <h3 class="col-md-12 text-center mb-1 title-nombre com-tema-1">
+      {{ user.nombre }}
+    </h3>
+    <p class="col-md-12 text-center roboto-regular">
+      <b>{{ dataPersonales.login }}</b>
+    </p>
+  </div>
+  <div class="row justify-content-center w-100 ml-0">
+    <div class="col-xl-10 col-12 row">
+      <div class="col-md-6 pt-4">
+        <nb-card class="ml-md-6 mr-md-6 ml-0 mr-0">
+          <nb-card-body class="p-2">
+            <h1 class="title-card col-md-12 mb-0 font-source-sans-pro">
+              Datos personales
+            </h1>
+            <div class="col-md-12 pt-0">
+              <div class="border-resalt pt-0"></div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">Nombre:</div>
+              <div class="col-12 col-sm-6 text-left roboto-regular">
+                {{ dataPersonales.nombre }}
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">Apellido:</div>
+              <div class="col-12 col-sm-6 text-left roboto-regular">
+                {{ dataPersonales.apellidoPaterno }}
+                {{ dataPersonales.apellidoMaterno }}
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">
+                Fecha de nacimiento:
+              </div>
+              <div class="col-12 col-sm-6 text-left roboto-regular">
+                {{ dataPersonales.fechaNacimiento | date: "dd-MM-yyyy" }}
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">
+                Correo electrónico:
+              </div>
+              <div class="col-12 col-sm-6 text-left roboto-regular">
+                {{ dataPersonales.email }}
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">Dirección:</div>
+              <div class="col-12 col-sm-6 text-left roboto-regular">
+                {{ dataPersonales.direccion }}
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">Teléfono:</div>
+              <div class="col-12 col-sm-6 text-left roboto-regular">
+                {{ dataPersonales.telefono }}
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">Tipo Persona:</div>
+              <div class="col-12 col-sm-6 text-left roboto-regular">
+                {{ dataPersonales.tipoPersona }}
+              </div>
+            </div>
+            <div class="row p-0">
+              <nb-actions size="small" fullWidth>
+                <nb-action
+                  *ngIf="isValidUser()"
+                  (click)="openDialogEdit(dataPersonales)"
+                >
+                  <img src="assets/images/pencil.svg" />
+                  <span
+                    class="roboto-regular"
+                    style="color: #0172ce; font-weight: normal; font-size: 14px"
+                    >Editar</span
+                  >
+                </nb-action>
+              </nb-actions>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-md-6 pt-4">
+        <nb-card class="ml-md-6 mr-md-6 ml-0 mr-0">
+          <nb-card-body class="p-2">
+            <h1 class="title-card col-md-12 mb-0 font-source-sans-pro">
+              Datos corporativos
+            </h1>
+            <div class="col-md-12 pt-0">
+              <div class="border-resalt pt-0"></div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">Empresa:</div>
+              <div class="col-12 p-0">
+                <div class="global"></div>
+              </div>
+              <div class="col-12 col-sm-12 text-left roboto-regular">
+                <div class="d-flex">
+                  <div class="d-inline-block ml-3 text-justify">
+                    <p>{{ nombreEmpresas }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 roboto-regular">
+                Usuario de Dominio:
+                {{ dataCorporativos.esUsuarioAD ? "Sí" : "No" }}
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 roboto-regular">
+                Unidad de negocio:
+              </div>
+              <div class="col-12 p-0">
+                <div class="global"></div>
+              </div>
+              <div class="col-12 col-sm-12 text-left roboto-regular">
+                <div class="d-flex">
+                  <div class="d-inline-block ml-3 text-justify">
+                    <p [innerHTML]="nombreUnidadesNegocio"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 row">
+              <div class="col-12 col-sm-6 hiden roboto-regular">
+                Responsable inmediato:
+              </div>
+              <div class="col-12 col-sm-6 text-left hiden roboto-regular">
+                Jorge Ramirez
+              </div>
+            </div>
+            <nb-actions size="small" fullWidth class="hiden">
+              <nb-action *ngIf="isValidUser()">
+                <nb-icon
+                  class="action-icon secundary"
+                  icon="edit-outline"
+                ></nb-icon>
+                <span class="primary font-roboto-d4">Editar</span>
+              </nb-action>
+            </nb-actions>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </div>
+  <div class="row box-close-session">
+    <div class="col-md-4 content-logout" *ngIf="responsive">
+      <nb-action class="justify-content-center" (click)="openDialogLogout()">
+        <nb-icon class="action-icon secundary" icon="power-outline"></nb-icon>
+        <span class="primary pl-1 font-source-sans-pro">Cerrar sesión</span>
+      </nb-action>
+    </div>
+  </div>
+  <input
+    style="visibility: collapse"
+    #inputfile
+    type="file"
+    (change)="onFileChange($event)"
+    [attr.accept]="FotoTipoImagenes"
+  />
+</div>

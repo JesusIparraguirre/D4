@@ -1,0 +1,70 @@
+<nb-card
+  [nbSpinner]="loading"
+  nbSpinnerStatus="success"
+  class="col-12 pl-0 pr-0 mb-4"
+>
+  <div class="row item ml-0 mr-0 hei-aut imp">
+    <div class="col-12 pl-0 pr-0 nb-card-sha">
+      <div class="row">
+        <div
+          class="col-3"
+          [nbContextMenu]="itemsContextMenu"
+          nbContextMenuTag="{{ contextMenuTag }}"
+          nbContextMenuTrigger="noop"
+        >
+          <img
+            [ngClass]="{ 'open-app': !esProximoLanzamiento }"
+            class="img-hei-1 mr-2 float-left"
+            [src]="
+              !app.imagenUrl ? 'assets/images/not-available.png' : app.imagenUrl
+            "
+            (click)="openApp()"
+          />
+        </div>
+      </div>
+      <div class="content-data align-self-center pl-0 max-hei-non imp">
+        <div class="row">
+          <div class="col-9">
+            <div class="row">
+              <div class="col-12">
+                <p class="com-tema-1 font-source-sans-pro">{{ app.nombre }}</p>
+              </div>
+              <div
+                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 align-self-center"
+              >
+                <p class="com-des font-roboto-d4">{{ app.descripcion }}</p>
+              </div>
+              <div
+                *ngIf="!esProximoLanzamiento"
+                class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 align-self-center pl-0"
+              >
+                <nb-icon
+                  class="secundary fon-siz-22px float-left"
+                  icon="eye"
+                  pack="ion"
+                ></nb-icon>
+                <p class="com-visitas pl-2 pt-2 float-left">
+                  {{ app.vistaUsuario + " visitas" }}
+                </p>
+              </div>
+              <div
+                *ngIf="!esProximoLanzamiento"
+                class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 align-self-center pl-0"
+              >
+                <img
+                  class="pin-favorite"
+                  (click)="setFavorite(app.destacadas ? 0 : 1)"
+                  [src]="
+                    app.destacadas
+                      ? 'assets/images/tack-select.svg'
+                      : 'assets/images/tack.svg'
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nb-card>

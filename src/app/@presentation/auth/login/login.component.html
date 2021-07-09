@@ -1,0 +1,62 @@
+<base-logo aligh="text-right">
+  <nb-layout-column class="align-self-center nb-layout-logo-div">
+    <div class="row text-center align-self-center justify-content-center" style="height: 80% !important;">
+        <nb-card class="col-11 col-sm-7 col-md-9 col-lg-8 col-xl-7 text-left"
+               [appLoader]="loading"
+               appLoaderStatus="primary"
+               appLoaderSize="large"
+               appLoaderMessage="">
+        <nb-card-header>
+          <div style="text-align: end">
+            <button nbButton ghost status="success" style=" padding-right: 0; padding-top: 12px;"><nb-icon icon="close" style="font-size: 1.5rem;" [routerLink]="['/auth/']"></nb-icon></button>
+          </div>
+          <div class="title-login font-source-sans-pro">Inicia sesión</div>
+        </nb-card-header>
+        <nb-card-body>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="group input-icons" [ngClass]="{ 'is-invalid': submitted && f.user.errors , 'borred': getUserErrorClass() }">
+              <nb-icon icon="person" [style.color]="getColorIcoUser()"></nb-icon>
+              <input type="text" class="txtfield font-roboto-d4" id="txtUser"
+                     (focusin)="focusInInputUser($event)"
+                     (focusout)="focusOutInputUser($event)"
+                     formControlName="user"
+                     maxlength="20"
+                     [ngClass]="{ 'is-invalid': submitted && f.user.errors}"
+                     [style.border-bottom-color] = "getColorBorderUser()"
+                     required>
+              <label for="txtUser" class="txtlabel" [style.color]="getColorLabelUser()">Usuario</label>
+              <div *ngIf="isVisibleErrorUser()" [style.color]="'red'" style="font-size: 1.5vh;text-align: left;">
+                El Usuario debe tener 5 carácteres minímo
+              </div>
+              <div *ngIf="!isVisibleErrorUser()" style="font-size: 1.5vh;text-align: left;">
+                <span [style.visibility]="'collapse'">El Usuario debe tener 5 carácteres minímo</span>
+              </div>
+            </div>
+            <div class="group input-icons" [ngClass]="{ 'is-invalid': submitted && f.pass.errors , 'borred': getPassErrorClass() }">
+              <nb-icon icon="{{showPass ? 'eye' : 'eye-off'}}" (click)="togglePass()" [style.color]="getColorIcoPass()"></nb-icon>
+              <input type="{{showPass ? 'text' : 'password'}}" class="txtfield font-roboto-d4" id="textPass"
+                     formControlName="pass"
+                     (focusin)="focusInInputPass($event)"
+                     (focusout)="focusOutInputPass($event)"
+                     [ngClass]="{ 'is-invalid': submitted && f.pass.errors }"
+                     [style.border-bottom-color] = "getColorBorderPass()"
+                     required>
+              <label for="textPass" class="txtlabel" [style.color]="getColorLabelPass()">Contraseña</label>
+              <div *ngIf="isVisibleErrorPass()" [style.color]="'red'" style="font-size: 1.5vh;text-align: left;">
+                La Contraseña debe tener 8 carácteres minímo
+              </div>
+              <div *ngIf="!isVisibleErrorPass()" style="font-size: 1.5vh;text-align: left;">
+                <span [style.visibility]="'collapse'">La Contraseña debe tener 8 carácteres minímo</span>
+              </div>
+            </div>
+            <button class="button-gradient" [disabled]="!loginForm.valid" type="submit" nbButton fullWidth size="large" shape="round">
+              Iniciar sesión
+            </button>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+          </form>
+          <div class="forgot-password pt-2 font-source-sans-pro"><a [routerLink]="['/auth/forgot-password/']" style="color: #0172ce">Olvidé mi contraseña</a></div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </nb-layout-column>
+</base-logo>

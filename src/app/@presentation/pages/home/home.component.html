@@ -1,0 +1,61 @@
+<div class="center-content mt-5 mb-5">
+  <div class="col-xl-11 col-md-11 col-11 sub-box">
+    <div class="row box-top pb-4">
+      <div class="col-md-4 align-self-start" style="padding: 0 7px !important;">
+        <div class="top-border-resalt"></div>
+        <h3 class="com-title font-source-sans-pro">¡Bienvenido, {{user?.nombre}}!</h3>
+        <div class="bor-bot-blu"></div>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="row">
+          <div class="search" [class.search-focus]="isInputFocus">
+            <nb-icon icon="search-outline"></nb-icon>
+            <input class="search-input com-search-input font-roboto-d4"
+                   (focus)="handleFocusInput()"
+                   (blur)="handleBlurInput()"
+                   name="search"
+                   [(ngModel)]="searchText"
+                   autocomplete="off"
+                   placeholder="Busca una aplicación"
+                   tabindex="-1"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 align-self-center">
+        <div class="row">
+          <div class="col-1 col-sm-6 col-md-6 col-lg-4 col-xl-4 text-right p-0">
+            <span class="align-self-center font-roboto-d4">Ver:</span>
+          </div>
+          <div class="col-8 col-sm-6 col-md-6 col-lg-8 col-xl-8 pl-0 box-action" >
+            <nb-action class="control-item float-left p-0 bn-action-grid_" icon="grid-outline" (click)="isgrid = true"
+              [ngClass]="isgrid? 'tab-active' : 'tab-inactive'"></nb-action>
+            <nb-action class="control-item float-left p-0 bn-action-list_ ml-4" icon="list-outline" (click)="isgrid = false"
+              [ngClass]="isgrid? 'tab-inactive' : 'tab-active'"></nb-action>
+          </div>
+        </div>
+      </div>
+      </div>
+    <div class="row box-content">
+      <div class="col-12">
+        <nb-layout-column *ngIf="isgrid" class="p-0 m-0">
+          <apps-grid (sendReloadApps)="sendReloadApps($event)" [urlimg]="emptyAppPin" [title]="emptyAppTitle" [subtitle]="emptyAppSubTitle" [visible]="true" [searchApps]="searchText" [titleList]="titleAppsStart" [appsListBase]="appsAll.destacados"></apps-grid>
+          <hr class="mb-4 mt-0">
+          <apps-grid (sendReloadApps)="sendReloadApps($event)" [searchApps]="searchText" [titleList]="titleAppsMoreToUse" [appsListBase]="appsAll.recurrentes"></apps-grid>
+          <hr class="mb-4 mt-0">
+          <apps-grid (sendReloadApps)="sendReloadApps($event)" [appsListBase]="appsAll.todos" [searchApps]="searchText" [titleList]="titleAppsAll"></apps-grid>
+          <hr class="mb-4 mt-0">
+          <apps-grid (sendReloadApps)="sendReloadApps($event)" [esProximoLanzamiento]="true" [searchApps]="searchText" [titleList]="titleAppsFuture" [appsListBase]="appsAll.lanzamientos"></apps-grid>
+        </nb-layout-column>
+        <nb-layout-column *ngIf="!isgrid" class="p-0 m-0">
+          <apps-list (sendReloadApps)="sendReloadApps($event)" [urlimg]="emptyAppPin" [title]="emptyAppTitle" [subtitle]="emptyAppSubTitle" [visible]="true" [searchApps]="searchText" [titleList]="titleAppsStart" [apps]="appsAll.destacados"></apps-list>
+          <hr class="mb-4 mt-0">
+          <apps-list (sendReloadApps)="sendReloadApps($event)" [searchApps]="searchText" [titleList]="titleAppsMoreToUse" [apps]="appsAll.recurrentes"></apps-list>
+          <hr class="mb-4 mt-0">
+          <apps-list (sendReloadApps)="sendReloadApps($event)" [searchApps]="searchText" [titleList]="titleAppsAll" [apps]="appsAll.todos"></apps-list>
+          <hr class="mb-4 mt-0">
+          <apps-list (sendReloadApps)="sendReloadApps($event)" [esProximoLanzamiento]="true" [searchApps]="searchText" [titleList]="titleAppsFuture" [apps]="appsAll.lanzamientos"></apps-list>
+        </nb-layout-column>
+      </div>
+    </div>
+  </div>
+</div>

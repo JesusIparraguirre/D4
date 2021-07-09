@@ -1,0 +1,10 @@
+<div class="group input-icons" [formGroup]="codeForm">
+  <input type="tel" class="txtfield font-source-sans-pro-semibold" id="textdireccion"
+         (focusin)="focusInInputCode1($event)"
+         (focusout)="focusOutInputCode1($event)"
+         formControlName="{{nameValue}}"
+         maxlength="1"
+         minlength="1"
+         [style.border-bottom-color] = "getColorBorderCode1()"
+         required>
+</div>

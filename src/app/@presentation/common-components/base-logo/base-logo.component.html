@@ -1,0 +1,8 @@
+<nb-layout-column class="row w-100 content-global align-content-center justify-content-center p-0 m-0">
+  <nb-layout-column class="p-0 align-self-center nb-layout-logo-img-center" [ngClass]="aligh" *ngIf="showLogo()">
+    <div>
+      <img class="title-img" src="assets/images/@auth/logo-nombre.svg"/>
+    </div>
+  </nb-layout-column>
+  <ng-content select="nb-layout-column"></ng-content>
+</nb-layout-column>

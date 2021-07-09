@@ -1,0 +1,136 @@
+@import '../../@theme/styles/themes';
+@import '../../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../../../../node_modules/@nebular/theme/styles/global/breakpoints';
+@include nb-install-component() {
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] { -moz-appearance:textfield; }
+
+  background-color: transparent;
+  nb-layout-header nav {
+    background-color: transparent;
+  }
+  nb-card-header {
+    padding: 0 0 0 1.2em !important;
+  }
+  .title-login {
+    font-family: sans-serif;
+    font-size: 4vh;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #003a70;
+    text-align: left;
+    padding: 0;
+  }
+
+
+  nb-card-body {
+    overflow: visible;
+    padding-bottom: 3rem;
+    padding-top: 0 !important;
+
+    > form > * {
+      margin-top: 4vh;
+    }
+    //> form > div > input {
+    //  margin-top: 2rem;
+    //}
+  }
+
+  .forgot-password {
+    text-align: center;
+    color: #0172ce;
+  }
+
+  nb-card {
+    max-height: 520px;
+    max-width: 394px;
+    border-radius : 10px;
+    margin: 0 3vw;
+  }
+  .caja {
+    text-align: center;
+  }
+  .caja-2 {
+    align-items: center;
+    height: 60vh;
+  }
+  .title-workspace {
+    color: white;
+    letter-spacing: 1.5rem;
+  }
+  .icon-padlock {
+    width: 4.3rem;
+    height: 8vh;
+    margin-bottom: 1.5rem;
+    text-align: start !important;
+  }
+
+  .border-resalt {
+    width: 24px;
+    height: 3px !important;
+    background-color: nb-theme(color-primary-dark);
+    margin-left: 0 !important;
+    border-radius: 4rem;
+    margin-top: 7px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    .border-resalt {
+      width: 24px;
+      height: 4px;
+      background-color: nb-theme(color-primary-dark);
+      margin-left: 12vw;
+      border-radius: 4rem;
+      margin-top: 2px;
+      margin-bottom: 1em;
+    }
+  }
+
+
+
+
+
+  /// custom
+
+  .group {
+    position: relative;
+    width: 1.4em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .txtfield {
+    font-size:28px;
+    width: 1em;
+    padding:1px 0 14px 0;
+    display:block;
+    border:none;
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    text-align: center;
+  }
+
+  .txtfield:focus {
+    outline:none;
+  }
+
+  /* active state */
+  .txtfield:focus ~ .txtlabel, .txtfield:valid ~ .txtlabel {
+    top:-20px;
+    font-size:12px;
+  }
+
+  .txtfield:focus ~ .bar:before, .txtfield:focus ~ .bar:after {
+    width: 2em;
+  }
+
+}

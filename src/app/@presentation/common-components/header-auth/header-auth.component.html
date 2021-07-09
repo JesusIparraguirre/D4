@@ -1,0 +1,15 @@
+<div class="header-container app-header">
+  <div class="row w-100">
+    <div class="col-6">
+      <img class="title" src="assets/images/logo.svg" alt="">
+    </div>
+    <div class="col-6 align-self-center" style="padding-right: 0 !important;" *ngIf="isActiveButtomLogin">
+      <div class="col-md-12 text-right pr-0">
+        <button class=" buttom-init font-source-sans-pro" nbButton shape="round" status="success" [routerLink]="['/auth/login']">
+          <nb-icon icon="md-person" pack="ion"></nb-icon>
+          {{text}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

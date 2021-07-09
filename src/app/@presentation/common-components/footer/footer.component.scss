@@ -1,0 +1,18 @@
+@import '../../@theme/styles/themes';
+@include nb-install-component() {
+
+  //background-color: #43b02a;
+  width: 100%;
+  //display: flex;
+  //justify-content: space-between;
+  //align-items: center;
+  //position: absolute;
+  padding: 0 7vw;
+  //right: 0;
+  //bottom: 0;
+  //left: 0;
+  color: white;
+  .text-footer {
+    font-size: 100%;
+  }
+}

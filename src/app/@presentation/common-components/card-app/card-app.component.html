@@ -1,0 +1,61 @@
+<nb-card
+  [nbSpinner]="loading"
+  nbSpinnerStatus="success"
+  class="col-12 pl-0 pr-0 mb-4"
+>
+  <div class="row item hei-aut imp">
+    <div
+      class="col-3 col-sm-5 col-md-5 col-lg-4 col-xl-4 pr-0"
+      [nbContextMenu]="itemsContextMenu"
+      nbContextMenuTag="{{ contextMenuTag }}"
+      nbContextMenuTrigger="noop"
+    >
+      <img
+        [ngClass]="{ 'open-app': !esProximoLanzamiento }"
+        class="img-hei"
+        [src]="
+          !app.imagenUrl ? 'assets/images/not-available.png' : app.imagenUrl
+        "
+        (click)="openApp()"
+      />
+    </div>
+    <div
+      class="col-9 col-sm-7 col-md-7 col-lg-8 col-xl-8 pl-0 align-self-center"
+    >
+      <div class="content-data align-self-center max-hei-non imp">
+        <p class="com-tema-1 font-source-sans-pro">{{ app.nombre }}</p>
+        <p class="com-des font-roboto-d4">{{ app.descripcion }}</p>
+        <div class="row m-0">
+          <div
+            *ngIf="!esProximoLanzamiento"
+            class="col-6 col-sm-6 col-md-8 content-views p-0"
+          >
+            <nb-icon
+              class="secundary fon-siz-22px"
+              icon="eye"
+              pack="ion"
+            ></nb-icon>
+            <span class="com-visitas position-relative pl-2 bot-5px">{{
+              app.vistaUsuario + " visitas"
+            }}</span>
+            <!-- <span class="com-visitas position-relative pl-2 bot-5px">{{(isFavorite ? app.vistaUsuario : app.vistaGeneral ) + ' visitas'}}</span> -->
+          </div>
+          <div
+            *ngIf="!esProximoLanzamiento"
+            class="col-6 col-sm-6 col-md-4 content-pin text-right text-md-left"
+          >
+            <img
+              class="pin-favorite"
+              (click)="setFavorite(app.destacadas ? 0 : 1)"
+              [src]="
+                app.destacadas
+                  ? 'assets/images/tack-select.svg'
+                  : 'assets/images/tack.svg'
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nb-card>

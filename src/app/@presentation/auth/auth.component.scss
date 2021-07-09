@@ -1,0 +1,33 @@
+@import '../@theme/styles/themes';
+@include nb-install-component() {
+  .image-container {
+    background-image: nb-theme(auth-url-bg);
+    background-size: 100vw 100vh;
+    padding: 0;
+  }
+  .image-container-md {
+    background-image: nb-theme(auth-url-bg);
+    padding: 0;
+  }
+  //app-header-auth {
+  //  height: inherit;
+  //}
+  .content-header {
+    height: inherit;
+  }
+
+  background-color: transparent;
+  .content-global {
+    //margin: 20vh 0 0 0;
+    height: 80%;
+  }
+  .title-workspace {
+    color: white;
+    font-size: 2em;
+    letter-spacing: 2.3vw;
+  }
+  .title-img {
+    width: auto !important;
+  }
+
+}

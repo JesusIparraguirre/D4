@@ -1,0 +1,26 @@
+<h3
+  class="com-tema font-source-sans-pro mb-4 mt-0"
+  *ngIf="!(appsListBase.length === 0 && valideFuture())"
+>
+  {{ titleList }}
+</h3>
+<div class="row m-0">
+  <div
+    *ngFor="let app of appsListBase | filterApps: searchApps"
+    class="col-sm-6 col-md-4 col-lg-3 col-xl-3 pb-2"
+  >
+    <card-app
+      [esProximoLanzamiento]="esProximoLanzamiento"
+      [isFavorite]="visible"
+      [app]="app"
+      (sendReload)="sendReload($event)"
+      class="row justify-content-center"
+    ></card-app>
+  </div>
+</div>
+<app-empty
+  *ngIf="appsListBase.length == 0 && visible"
+  [urlimg]="urlimg"
+  [title]="title"
+  [subtitle]="subtitle"
+></app-empty>

@@ -1,0 +1,22 @@
+<nb-card class="mt-4">
+  <nb-card-body class="p-2">
+    <div class="col-12 row">
+      <div
+        *ngFor="let obj of dataMesaservicios"
+        class="col-12 text-left roboto-regular"
+      >
+        <div *ngIf="obj.idEmpresa > 0">
+          <div>
+            <button
+              type="button"
+              (click)="IrAMesaServicio(obj.url)"
+              class="btn btn-link"
+            >
+              {{ obj.nombreEmpresa }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

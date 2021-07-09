@@ -1,0 +1,23 @@
+<h3
+  class="com-tema font-source-sans-pro mb-4 mt-0"
+  *ngIf="!(apps.length === 0 && valideFuture())"
+>
+  {{ titleList }}
+</h3>
+<div class="row">
+  <div *ngFor="let app of apps | filterApps: searchApps" class="col-12 pb-2">
+    <item-list-app
+      [esProximoLanzamiento]="esProximoLanzamiento"
+      [isFavorite]="visible"
+      [app]="app"
+      (sendReload)="sendReload($event)"
+      class="row justify-content-center ml-0 mr-0"
+    ></item-list-app>
+  </div>
+</div>
+<app-empty
+  *ngIf="apps.length == 0 && visible"
+  [urlimg]="urlimg"
+  [title]="title"
+  [subtitle]="subtitle"
+></app-empty>

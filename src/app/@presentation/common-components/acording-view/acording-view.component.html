@@ -1,0 +1,100 @@
+<div class="row m-0">
+  <div class="row global col-md-9 col-12 p-0">
+    <div class="row col-12 header-acord">
+      <div class="col-9">
+        <div class="d-flex">
+          <div class="d-inline-block">
+            <p-checkbox
+              *ngIf="isMantainer"
+              [binary]="true"
+              [(ngModel)]="pregunta.checked"
+              (onChange)="onCheckedQs($event)"
+            ></p-checkbox>
+          </div>
+          <div class="d-inline-block ml-3">
+            <div class="title-acord font-source-sans-pro-semibold">
+              {{ pregunta.descripcion }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 text-right p-0">
+        <span *ngIf="isMantainer" class="badge badge-pill badge-light">
+          {{ pregunta.idEstado === 1 ? "Activo" : "Inactivo" }}
+        </span>
+        <i
+          *ngIf="isMantainer"
+          class="fas fa-pen icon-dist ml-2 c-pointer"
+          (click)="onEditQs(pregunta)"
+        ></i>
+        <span
+          *ngIf="isMantainer"
+          class="badge badge-pill badge-success ml-2 c-pointer"
+          (click)="onNewAnswer(pregunta.idPregunta)"
+        >
+          Responder
+        </span>
+        <i
+          class="c-pointer icon-dist {{
+            open ? 'fas fa-minus' : 'fas fa-plus'
+          }} ml-2"
+          (click)="changeStatus()"
+        ></i>
+      </div>
+    </div>
+    <div class="row col-12 body-acord roboto-regular ml-5" *ngIf="open">
+      <div class="row col-12" *ngIf="showEnableDisabledAnws">
+        <div class="col-12">
+          <button
+            class="btn btn-sm"
+            nbTooltip="Activar"
+            nbTooltipPlacement="bottom"
+            (click)="onEnable()"
+          >
+            <i class="fas fa-toggle-on icon-gray"></i>
+          </button>
+          <button
+            class="btn btn-sm"
+            nbTooltip="Inactivar"
+            nbTooltipPlacement="bottom"
+            (click)="onDisable()"
+          >
+            <i class="fas fa-toggle-off icon-gray"></i>
+          </button>
+        </div>
+        <div class="col-12 p-0">
+          <div class="global"></div>
+        </div>
+      </div>
+      <div
+        class="row col-12 mt-3 pr-0"
+        *ngFor="let resp of pregunta.respuestas"
+      >
+        <div class="d-flex">
+          <div class="d-inline-block">
+            <p-checkbox
+              *ngIf="isMantainer"
+              [(ngModel)]="resp.checked"
+              [binary]="true"
+              (onChange)="onCheckedAnws($event)"
+            ></p-checkbox>
+          </div>
+          <div class="d-inline-block ml-3 text-justify">
+            {{ resp.descripcion }}
+          </div>
+          <div class="d-inline-block ml-2" *ngIf="isMantainer">
+            <span class="badge badge-pill badge-light">
+              {{ resp.idEstado === 1 ? "Activo" : "Inactivo" }}
+            </span>
+          </div>
+          <div class="d-inline-block ml-2" *ngIf="isMantainer">
+            <i
+              class="fas fa-pen icon-dist c-pointer"
+              (click)="onEditAnswer(resp, pregunta.idPregunta)"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

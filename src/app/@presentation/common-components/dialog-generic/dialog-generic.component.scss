@@ -1,0 +1,200 @@
+@import '../../@theme/styles/themes';
+@import '../../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../../../../node_modules/@nebular/theme/styles/global/breakpoints';
+@include nb-install-component() {
+  $primary: nb-theme(color-primary);
+  $secundary: nb-theme(color-secundary);
+
+  @include media-breakpoint-down(md) {
+    nb-card {
+      max-width: 300px !important;
+    }
+  }
+
+  nb-card {
+    max-width: 394px;
+    border-radius: 10px;
+  }
+  .title-generic {
+    font-size: 3vh;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    color: #003a70;
+  }
+  nb-card-footer {
+    margin-bottom: 4vh;
+    margin-top: 5vh;
+  }
+
+  .body-generic {
+    font-size: 17px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+    color: #2a2a2a;
+  }
+
+  button {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+  }
+  form {
+    padding: 26px 3rem 3rem 3rem;
+  }
+  //input {
+  //  margin-top: 26px;
+  //}
+  nb-action {
+    padding: 14px !important;
+    cursor: pointer;
+    > nb-icon {
+      color: $secundary;
+      cursor: pointer;
+    }
+  }
+  .title-card {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  ///personal
+
+
+
+  .group {
+    position:relative;
+    margin-top: 42px;
+  }
+
+  .txtfield {
+    font-size:16px;
+    padding:1px 10px 14px 0;
+    display:block;
+    width:100%;
+    border:none;
+    border-bottom:1px solid #E2E2E2;
+  }
+
+  .txtfield:focus {
+    outline:none;
+  }
+
+  .txtlabel {
+    color:#9d9d9d;
+    font-size:16px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:0px;
+    top:10px;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+    /*margin-left:15px;*/
+  }
+  .highlight {
+    color: #E2E2E2;
+  }
+
+  /* active state */
+  .txtfield:focus ~ .txtlabel, .txtfield:valid ~ .txtlabel {
+    top:-20px;
+    font-size:12px;
+  }
+
+  .bar {
+    position:relative;
+    display:block;
+    width:100%;
+  }
+
+  .bar:before, .bar:after {
+    content:'';
+    height:2px;
+    width:0;
+    bottom:1px;
+    position:absolute;
+    background:#003a70;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+  }
+
+  .bar:before {
+    left:50%;
+  }
+
+  .bar:after {
+    right:50%;
+  }
+
+  /**/
+  .borred {
+    input {
+      border-bottom: solid;
+      border-bottom-color: red;
+      border-bottom-width: 0.2rem;
+    }
+    label {
+      color: red;
+    }
+
+  }
+  /**/
+  .txtfield:focus ~ .bar:before, .txtfield:focus ~ .bar:after {
+    width:50%;
+  }
+
+  .highlight {
+    position:absolute;
+    height:60%;
+    width:100px;
+    top:25%;
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+
+  .txtfield:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+    from { background:#003a70; }
+    to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+    from { background:#003a70; }
+    to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+    from { background:#003a70; }
+    to 	{ width:0; background:transparent; }
+  }
+
+  .input-icons {
+    width: 100%;
+  }
+
+  .input-icons nb-icon {
+    position: absolute;
+    color: #999;
+    //top:15px;
+    right:5px;
+    //bottom:20px;
+    //font-size:16px;
+  }
+  ////////
+}

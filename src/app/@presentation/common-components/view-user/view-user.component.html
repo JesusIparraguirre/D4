@@ -1,0 +1,9 @@
+<div class="row align-items-center">
+  <nb-user size="large"
+           name="{{name}}"
+           color="#43b02a"
+           picture="{{picture}}"
+           onlyPicture>
+  </nb-user>
+  <div *ngIf="!userPictureOnly" class="roboto-regular box-name" [class.background-profile]="isActiveProfile">{{name}}</div>
+</div>

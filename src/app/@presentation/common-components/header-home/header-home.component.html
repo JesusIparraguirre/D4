@@ -1,0 +1,26 @@
+<div class="row justify-content-center">
+  <div class="col-xl-12 col-12">
+    <div class="row caja">
+      <div class="col-9 p-0">
+        <div class="row">
+          <div class="col-md-4 col-12 align-items-center" [ngClass]="classContainer">
+            <div class="row m-0 p-0 align-items-center">
+                <img class="col-2 m-0 p-0 logo header-title-logo log-head" src="assets/images/logo_app.svg" alt="" />
+                <h1 class="col-10 m-0 p-0 logo header-title-workspace log-head-let">WORKSPACE</h1>
+            </div>
+          </div>
+          <div class="col-md-8 col-12 align-self-center content-menu text-md-left text-xl-center p-0">
+            <ng-content select="nb-menu"></ng-content>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-3 content-user">
+        <nb-actions size="small" class="justify-content-center">
+          <nb-action class="user-action" *nbIsGranted="['view', 'user']">
+            <ng-content select="view-user"></ng-content>
+          </nb-action>
+        </nb-actions>
+      </div>
+    </div>
+  </div>
+</div>

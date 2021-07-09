@@ -1,0 +1,19 @@
+@import '../../@theme/styles/themes';
+@include nb-install-component() {
+
+  background-color: transparent;
+  .content-global {
+    //margin: 20vh 0 0 0;
+    height: 80%;
+  }
+  .title-workspace {
+    color: white;
+    font-size: 2em;
+    letter-spacing: 2.3vw;
+  }
+  .title-img {
+    width: auto !important;
+    max-height: 278.4px !important;
+  }
+
+}

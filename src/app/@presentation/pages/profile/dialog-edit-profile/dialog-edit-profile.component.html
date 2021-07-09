@@ -1,0 +1,118 @@
+<nb-card [appLoader]="loading">
+  <nb-card-body class="row p-0">
+    <div class="col-12">
+      <nb-actions size="small" style="place-content: flex-end">
+        <nb-action class="control-item" (click)="dismiss()">
+          <nb-icon class="action-icon secundary" icon="close-outline"></nb-icon>
+        </nb-action>
+      </nb-actions>
+    </div>
+    <div class="col-12">
+      <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+        <h1 class="title-card col-md-12 p-0 mb-0 mt-0 font-source-sans-pro">
+          Editar
+        </h1>
+        <div class="form-group">
+          <div class="group input-icons" [ngClass]="{
+                      'is-invalid': submitted && f.fechanacimiento.errors,
+                      borred: getFechanacimientoErrorClass()
+                    }">
+            <!-- <nb-icon icon="calendar-outline" [style.color]="getColorIcoFechanacimiento()"></nb-icon> -->
+            <input type="date" class="txtfield font-roboto-d4 pr-4" id="txtfechanacimiento"
+              formControlName="fechanacimiento" [ngClass]="{ 'is-invalid': submitted && f.fechanacimiento.errors }"
+              onfocus="(this.type='date')" onfocusout="(this.type='date')" 
+              onclick="javascript: document.getElementById('txtfechanacimiento').setAttribute('display','block');">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="txtfechanacimiento" class="txtlabel" [style.color]="getColorLabelFechanacimiento()">Fecha
+              nacimiento</label>
+            <div *ngIf="isVisibleErrorFechanacimiento()" [style.color]="'red'"
+              style="font-size: 12px; text-align: left">
+              El campo es requerido
+            </div>
+            <div *ngIf="!isVisibleErrorFechanacimiento()">
+              <span [style.visibility]="'collapse'" style="font-size: 12px; text-align: left">El campo es
+                requerido</span>
+            </div>
+            <div *ngIf="f.fechanacimiento.errors?.fechanacimiento" [style.color]="'red'"
+              style="font-size: 12px; text-align: left">
+              Fecha nacimiento inválido.
+            </div>
+          </div>
+
+
+          <div class="group input-icons" [ngClass]="{
+              'is-invalid': submitted && f.correo.errors,
+              borred: getCorreoErrorClass()
+            }">
+            <nb-icon icon="email" [style.color]="getColorIcoCorreo()"></nb-icon>
+            <input type="text" class="txtfield font-roboto-d4 pr-4" id="txtcorreo"
+              (focusin)="focusInInputCorreo($event)" (focusout)="focusOutInputCorreo($event)" formControlName="correo"
+              [ngClass]="{ 'is-invalid': submitted && f.correo.errors }" maxlength="128" required />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="txtcorreo" class="txtlabel" [style.color]="getColorLabelCorreo()">Correo electrónico</label>
+            <div *ngIf="isVisibleErrorCorreo()" [style.color]="'red'" style="font-size: 12px; text-align: left">
+              El campo es requerido
+            </div>
+            <div *ngIf="!isVisibleErrorCorreo()">
+              <span [style.visibility]="'collapse'" style="font-size: 12px; text-align: left">El campo es
+                requerido</span>
+            </div>
+            <div *ngIf="f.correo.errors?.email" [style.color]="'red'" style="font-size: 12px; text-align: left">
+              Correo inválido.
+            </div>
+          </div>
+
+          <div class="group input-icons" [ngClass]="{
+              'is-invalid': submitted && f.direccion.errors,
+              borred: getDireccionErrorClass()
+            }">
+            <nb-icon icon="pin" [style.color]="getColorIcoDireccion()"></nb-icon>
+            <input type="text" class="txtfield font-roboto-d4 pr-4" id="txtdireccion"
+              (focusin)="focusInInputDireccion($event)" (focusout)="focusOutInputDireccion($event)"
+              formControlName="direccion" [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }" maxlength="100"
+              required />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="txtdireccion" class="txtlabel" [style.color]="getColorLabelDireccion()">Dirección</label>
+            <div *ngIf="isVisibleErrorDireccion()" [style.color]="'red'" style="font-size: 12px; text-align: left">
+              El campo es requerido
+            </div>
+            <div *ngIf="!isVisibleErrorDireccion()">
+              <span [style.visibility]="'collapse'" style="font-size: 12px; text-align: left">El campo es
+                requerido</span>
+            </div>
+          </div>
+
+          <div class="group input-icons" [ngClass]="{
+              'is-invalid': submitted && f.telefono.errors,
+              borred: getTelefonoErrorClass()
+            }">
+            <nb-icon icon="phone" [style.color]="getColorIcoTelefono()"></nb-icon>
+            <input type="tel" class="txtfield font-roboto-d4 pr-4" id="txttelefono"
+              (focusin)="focusInInputTelefono($event)" (focusout)="focusOutInputTelefono($event)" [(ngModel)]="cod1"
+              #code1 (ngModelChange)="changedCode1($event)" formControlName="telefono" maxlength="20"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" required />
+            <span class="highlight"></span>
+            <span class="bar" *ngIf="!getErrorTelefono()"></span>
+            <label for="txttelefono" class="txtlabel" [style.color]="getColorLabelTelefono()">Teléfono</label>
+            <div *ngIf="isVisibleErrorTelefono()" [style.color]="'red'" style="font-size: 12px; text-align: left">
+              El campo es requerido
+            </div>
+            <div *ngIf="!isVisibleErrorTelefono()">
+              <span [style.visibility]="'collapse'" style="font-size: 12px; text-align: left">El campo es
+                requerido</span>
+            </div>
+          </div>
+        </div>
+        <button class="button-gradient"
+          [disabled]="this.getErrorFechanacimiento() || this.getErrorTelefono() || this.getErrorDireccion() || this.getErrorCorreo()"
+          type="submit" nbButton fullWidth size="large" shape="round">
+          Guardar
+        </button>
+      </form>
+    </div>
+  </nb-card-body>
+</nb-card>

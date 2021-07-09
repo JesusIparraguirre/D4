@@ -1,0 +1,33 @@
+:host {
+  padding: 0 2px;
+}
+.group {
+  position:relative;
+  margin-top: 42px;
+  width: 1.4em;
+}
+
+.txtfield {
+  font-size:28px;
+  width: 1em;
+  padding:1px 0 14px 0;
+  display:block;
+  border:none;
+  border-bottom: solid;
+  border-bottom-width: 2px;
+  text-align: center;
+}
+
+.txtfield:focus {
+  outline:none;
+}
+
+/* active state */
+.txtfield:focus ~ .txtlabel, .txtfield:valid ~ .txtlabel {
+  top:-20px;
+  font-size:12px;
+}
+
+.txtfield:focus ~ .bar:before, .txtfield:focus ~ .bar:after {
+  width: 2em;
+}

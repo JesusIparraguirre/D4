@@ -1,0 +1,59 @@
+<div [appLoader]="loading" class="center-content mt-md-5 mb-md-5 mt-3 mb-3">
+  <div class="col-xl-11 col-md-11 col-11 sub-box p-0">
+    <div class="row box-top pb-4">
+      <div class="col-6 align-self-start">
+        <div class="top-border-resalt"></div>
+        <h3 class="com-title font-source-sans-pro">Preguntas frecuentes</h3>
+        <div class="bor-bot-blu"></div>
+      </div>
+      <div class="col-3 text-right">
+        <button
+          *ngIf="flgMant"
+          class="btn btn-sm dist-btn-nuevo"
+          shape="round"
+          status="success"
+          (click)="onNewQs()"
+        >
+          <i class="fas fa-plus mr-2"></i> Agregar Pregunta
+        </button>
+      </div>
+    </div>
+    <div class="row col-12" *ngIf="showEnableDisabledQs">
+      <div class="col-12">
+        <button
+          class="btn btn-sm"
+          nbTooltip="Activar"
+          nbTooltipPlacement="bottom"
+          (click)="onEnable()"
+        >
+          <i class="fas fa-toggle-on icon-gray"></i>
+        </button>
+        <button
+          class="btn btn-sm"
+          nbTooltip="Inactivar"
+          nbTooltipPlacement="bottom"
+          (click)="onDisable()"
+        >
+          <i class="fas fa-toggle-off icon-gray"></i>
+        </button>
+      </div>
+      <div class="col-12 p-0">
+        <div class="divider"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <acording-view
+          *ngFor="let quest of questions"
+          [pregunta]="quest"
+          [isMantainer]="flgMant"
+          (eventCheckedQs)="onChecked()"
+          (eventEditQs)="onEditQs($event)"
+          (eventNewAnswer)="onNewAnswer($event)"
+          (eventEditAnswer)="onEditAnswer($event)"
+          (eventReload)="onReload()"
+        ></acording-view>
+      </div>
+    </div>
+  </div>
+</div>

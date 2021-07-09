@@ -1,0 +1,11 @@
+<nb-layout>
+  <nb-layout-column [ngClass]="{'image-container-md': response , 'image-container' : !response}" style="padding: 0">
+    <nb-layout-header class="bg-transparent">
+      <app-header-auth class="content-header"></app-header-auth>
+    </nb-layout-header>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+ <nb-layout-footer fixed>
+    <app-footer-auth class="w-100" style="padding: 0rem 2vw;"></app-footer-auth>
+  </nb-layout-footer>
+</nb-layout>

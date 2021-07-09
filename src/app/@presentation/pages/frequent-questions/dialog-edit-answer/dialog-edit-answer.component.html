@@ -1,0 +1,89 @@
+<div class="mt-4" [appLoader]="loading">
+  <form autocomplete="off" [formGroup]="myForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <span
+            class="p-float-label dist-textareatmdl dist-valid"
+            [ngClass]="{
+              'p-invalid': submitted && f.descripcion.errors,
+              'p-valid': submitted && !f.descripcion.errors
+            }"
+          >
+            <textarea
+              pInputTextarea
+              formControlName="descripcion"
+              trimForm
+              id="descripcion"
+              rows="1"
+            ></textarea>
+            <label for="descripcion">Descripción Respuesta</label>
+          </span>
+          <small
+            *ngIf="
+              f.descripcion.invalid &&
+              (f.descripcion.dirty || f.descripcion.touched)
+            "
+            class="invalid-feedback d-block"
+          >
+            <span *ngIf="f.descripcion.errors?.required"
+              >Este campo es requerido</span
+            >
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label for="orden">Orden</label>
+        <button
+          class="font-source-sans-pro-semibold newbuttom mr-1 ml-2"
+          style="padding: 5px 5px"
+          nbButton
+          status="success"
+          (click)="disminuir()"
+        >
+          <i class="fas fa-minus"></i>
+        </button>
+        <label
+          class="font-source-sans-pro-semibold"
+          style="padding: 7.5px 10px"
+          nbButton
+        >
+          {{ orden }}
+        </label>
+        <button
+          class="font-source-sans-pro-semibold"
+          style="padding: 5px 5px"
+          nbButton
+          status="success"
+          (click)="aumentar()"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <span class="dist-switchmdl">
+            <label>{{ getLabelStatus() }}</label>
+            <p-inputSwitch formControlName="estado"></p-inputSwitch>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+      <button
+        class="btn btn-sm"
+        class="button-gradient col-3 search"
+        type="submit"
+        nbButton
+        size="large"
+        shape="round"
+        (click)="submit()"
+        [disabled]="myForm.invalid"
+      >
+        Guardar
+      </button>
+    </div>
+  </form>
+</div>

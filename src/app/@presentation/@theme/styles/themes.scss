@@ -1,0 +1,95 @@
+// @nebular theming framework
+@import '../../../../../node_modules/@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '../../../../../node_modules/@nebular/theme/styles/themes';
+
+$nb-themes: nb-register-theme((
+
+
+
+  color-gray-bg: #edf0f5,
+  custiom-radius: 0.625rem,
+  color-primary: #003a70,
+  color-secundary: #43b02a,
+  color-primary-dark: #0172ce,
+  transparent: rgba(255, 255, 255, 0),
+  footer-background-color:#43b02a,
+  user-initials-text-color: #FFF,
+  //footer-padding: 0,
+
+
+  auth-url-bg: url('/assets/images/@auth/bg-auth.png'),
+  profile-url-bg: url('/assets/images/@auth/bg-profile.png'),
+  color-primary-100: #caf0fc,
+  color-primary-200: #96DDFA,
+  color-primary-300: #60BFF1,
+  color-primary-400: #389FE3,
+  color-primary-500: #0073D2,
+  color-primary-600: #0059B4,
+  color-primary-700: #004297,
+  color-primary-800: #002E79,
+  color-primary-900: #002164,
+  color-success-100: #E7FBD4,
+  color-success-200: #CAF7AB,
+  color-success-300: #A1E77D,
+  color-success-400: #78CF59,
+  color-success-500: #43b02a,
+  color-success-600: #2C971E,
+  color-success-700: #187E15,
+  color-success-800: #0D6610,
+  color-success-900: #085410,
+  color-info-100: #D0E8FE,
+  color-info-200: #A2CEFD,
+  color-info-300: #73AFFB,
+  color-info-400: #5093F7,
+  color-info-500: #1868F2,
+  color-info-600: #1150D0,
+  color-info-700: #0C3BAE,
+  color-info-800: #07298C,
+  color-info-900: #041C74,
+  color-warning-100: #FFF3CC,
+  color-warning-200: #FFE399,
+  color-warning-300: #FFD066,
+  color-warning-400: #FFBC3F,
+  color-warning-500: #FF9D00,
+  color-warning-600: #DB7E00,
+  color-warning-700: #B76200,
+  color-warning-800: #934900,
+  color-warning-900: #7A3800,
+  color-danger-100: #FFE3D3,
+  color-danger-200: #FFBFA8,
+  color-danger-300: #FF947C,
+  color-danger-400: #FF6C5C,
+  color-danger-500: #FF2926,
+  color-danger-600: #DB1B29,
+  color-danger-700: #B7132D,
+  color-danger-800: #930C2D,
+  color-danger-900: #7A072D,
+
+  layout-background-color: rgba(255, 255, 255, 0),
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+  card-divider-color: rgba(255, 255, 255, 0),
+  menu-item-divider-color: rgba(255, 255, 255, 0),
+  tabset-tab-active-text-color : #43b02a,
+  tabset-tab-active-underline-color : rgba(255, 255, 255, 0),
+  tabset-tab-focus-text-color : #43b02a,
+  tabset-tab-focus-underline-color : rgba(255, 255, 255, 0),
+  tabset-tab-hover-text-color : #43b02a,
+  tabset-tab-hover-underline-color : rgba(255, 255, 255, 0),
+  outline-width : 0,
+
+
+), default, default);
